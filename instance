@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+DIR=$(dirname $(realpath $0))
+THIS=$(basename $0)
+
+
+set -a
+source $DIR/.env
+set +a
+
+if [ "$1"="start" ]; then
+  python3 $DIR/instance_starter.py
+elif [ "$1"="stop" ]; then
+  python3 $DIR/instance_stopper.py
+else
+  echo "USAGE: $THIS {start|stop}"
+fi
